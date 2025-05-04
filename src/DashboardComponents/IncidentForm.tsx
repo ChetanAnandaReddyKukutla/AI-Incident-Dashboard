@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SeverityLevel, mockIncidents } from "../Data/mockIncidents";
 import { toast } from "sonner";
 
