@@ -13,14 +13,14 @@
             {/* 1st block */}
             <div className="space-y-2 sm:col-span-12 lg:col-span-4">
               <div></div>
-              <div className="text-sm text-gray-900">
+              <div className="text-sm text-white">
                 &copy; AI Sentinel.com - All rights reserved.
               </div>
             </div>
 
             {/* 2nd block */}
             <div className="space-y-5 sm:col-span-6 md:col-span-3 lg:col-span-2 z-10">
-              <h3 className="text-sm font-medium">Social</h3>
+              <h3 className="text-sm font-medium text-white">Social</h3>
               <ul className="flex gap-3">
                 <li>
                   <a
@@ -97,7 +97,7 @@
             aria-hidden="true"
           >
             <div className="flex items-center justify-center overflow-clip">
-              <h1 className="text-[12vw] font-bold leading-none text-transparent bg-clip-text bg-gradient-to-b from-green-700 to-gray-100/30 mix-blend-darken">
+              <h1 className="text-[12vw] font-bold leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-100/30 ">
                 AI Sentinel
               </h1>
             </div>

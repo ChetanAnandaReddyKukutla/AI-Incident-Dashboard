@@ -13,13 +13,13 @@ const IncidentCard = ({ incident }: Props) => {
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case "High":
-        return "text-red-600 bg-red-100 hover:ring-red-300";
+        return "text-red-600 bg-red-200 border hover:ring-red-400 hover:bg-red-300/50";
       case "Medium":
-        return "text-yellow-600 bg-orange-100 hover:ring-yellow-300";
+        return "text-yellow-600 bg-orange-100 border hover:ring-yellow-400 hover:bg-yellow-100/50";
       case "Low":
-        return "text-green-600 bg-green-100 hover:ring-green-300";
+        return "text-green-600 bg-green-100 border hover:ring-green-400 hover:bg-green-100/50";
       default:
-        return "text-gray-600 bg-gray-100 hover:ring-gray-300";
+        return "text-gray-600 bg-gray-100 border hover:ring-gray-400";
     }
   };
 
@@ -27,12 +27,12 @@ const IncidentCard = ({ incident }: Props) => {
 
   return (
     <div
-      className={`bg-white p-4 rounded-xl shadow-sm transition hover:shadow-lg hover:ring-4 ${getSeverityColor(
+      className={`bg-white/30 p-4 rounded-xl shadow-sm transition hover:shadow-lg hover:ring-4 ${getSeverityColor(
         incident.severity
       )}`}
     >
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xl font-semibold text-gray-800">{incident.title}</h3>
+        <h3 className="text-xl font-semibold ">{incident.title}</h3>
         <span
           className={`text-sm font-medium px-3 py-1 rounded-full ${getSeverityColor(
             incident.severity
@@ -41,15 +41,15 @@ const IncidentCard = ({ incident }: Props) => {
           {incident.severity}
         </span>
       </div>
-      <p className="text-sm text-gray-500">Reported on: {formattedDate}</p>
+      <p className="text-sm text-gray-800">Reported on: {formattedDate}</p>
 
       {expanded && (
-        <p className="mt-3 text-gray-700 whitespace-pre-line">{incident.description}</p>
+        <p className="mt-3 text-white whitespace-pre-line">{incident.description}</p>
       )}
 
       <button
         onClick={toggleDescription}
-        className="mt-3 text-blue-600 hover:underline text-sm font-medium"
+        className="mt-3 text-blue-500 hover:underline text-sm font-medium"
       >
         {expanded ? "Hide Details" : "View Details"}
       </button>
