@@ -91,6 +91,7 @@ const IncidentForm = ({ addIncident }: Props) => {
             onChange={(e) => setSeverity(e.target.value as SeverityLevel)}
             className="w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring border-white font-bold text-blue-500"
             aria-label="Select severity level"
+            
           >
             <option value="Low"  className="font-bold" >Low</option>
             <option value="Medium" className="font-bold">Medium</option>

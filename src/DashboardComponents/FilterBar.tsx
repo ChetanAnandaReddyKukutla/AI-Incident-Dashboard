@@ -25,7 +25,7 @@ type Props = {
         </div>
   
         <div className="flex items-center gap-2">
-          <label htmlFor="sortOrder" className="text-sm text-gray-600">Sort by Date:</label>
+          <label htmlFor="sortOrder" className="text-sm text-black">Sort by Date:</label>
           <select
             id="sortOrder"
             value={sortOrder}

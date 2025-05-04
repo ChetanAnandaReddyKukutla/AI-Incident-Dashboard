@@ -1,14 +1,21 @@
 import { useState } from "react";
-import FilterBar from '../Components/FilterBar';
-import IncidentCard from '../Components/IncidentCard';
-import IncidentForm from '../Components/IncidentForm';
-import HeroHome from './HeroHome';
-import Footer from '../Pages/Footer';
-import { initialIncidents , AIIncident, SeverityLevel } from "../Data/mockIncidents";
+import FilterBar from "../DashboardComponents/FilterBar";
+import IncidentCard from "../DashboardComponents/IncidentCard";
+import IncidentForm from "../DashboardComponents/IncidentForm";
+import HeroHome from "./HeroHome";
+import Footer from "../Pages/Footer";
+import {
+  initialIncidents,
+  AIIncident,
+  SeverityLevel,
+} from "../Data/mockIncidents";
+import Navbar from "./Navbar";
 
 function HomePage() {
   const [incidents, setIncidents] = useState<AIIncident[]>(initialIncidents);
-  const [filterSeverity, setFilterSeverity] = useState<"All" | "Low" | "Medium" | "High">("All");
+  const [filterSeverity, setFilterSeverity] = useState<
+    "All" | "Low" | "Medium" | "High"
+  >("All");
   const [sortOrder, setSortOrder] = useState<"Newest" | "Oldest">("Newest");
 
   const filteredIncidents = incidents.filter((incident) => {
@@ -22,7 +29,11 @@ function HomePage() {
     return sortOrder === "Newest" ? dateB - dateA : dateA - dateB;
   });
 
-  const addIncident = (newIncident: { title: string; description: string; severity: SeverityLevel }) => {
+  const addIncident = (newIncident: {
+    title: string;
+    description: string;
+    severity: SeverityLevel;
+  }) => {
     const incident: AIIncident = {
       id: incidents.length + 1,
       title: newIncident.title,
@@ -35,49 +46,58 @@ function HomePage() {
 
   return (
     <>
-    <div className=" bg-black">
-    <div className="min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <HeroHome />
+      <div className=" bg-black ">
 
-      <div className="flex-grow p-6">
-        <div className="max-w-6xl mx-auto space-y-10">
-          {/* Title Section */}
-          <h1 className="text-4xl font-semibold text-center text-red-200">
-            AI Safety Incident Dashboard
-          </h1>
+          <div className="min-h-screen flex flex-col">
+          <Navbar />
+            {/* Hero Section */}
+            <HeroHome />
 
-          {/* Filters */}
-          <section className="bg-white/50 border  border-white p-6 rounded-2xl shadow-md">
-            <FilterBar
-              filterSeverity={filterSeverity}
-              setFilterSeverity={setFilterSeverity}
-              sortOrder={sortOrder}
-              setSortOrder={setSortOrder}
-            />
-          </section>
+            <div id="dashboard" className="flex-grow p-6">
+              <div className="max-w-6xl mx-auto space-y-10 ">
+                {/* Title Section */}
+                <h1 className="text-4xl font-semibold text-center text-blue-700">
+                  AI Safety Incident Dashboard
+                </h1>
 
-          {/* Incident Cards */}
-          <section className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 ">
-            {sortedIncidents.length > 0 ? (
-              sortedIncidents.map((incident) => <IncidentCard key={incident.id} incident={incident} />)
-            ) : (
-              <p className="text-center text-white col-span-2">No incidents to display.</p>
-            )}
-          </section>
+                {/* Filters */}
+                <section className="bg-gray-100 border  border-white p-6 rounded-2xl shadow-md">
+                  <FilterBar
+                    filterSeverity={filterSeverity}
+                    setFilterSeverity={setFilterSeverity}
+                    sortOrder={sortOrder}
+                    setSortOrder={setSortOrder}
+                  />
+                </section>
 
-          {/* New Incident Form */}
-          <section className=" border border-white p-6 rounded-2xl shadow-md mb-50">
-            <h2 className="text-2xl font-bold mb-4 text-white">Report a New Incident</h2>
-            <IncidentForm addIncident={addIncident} />
-          </section>
+                {/* Incident Cards */}
+                <section className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 ">
+                  {sortedIncidents.length > 0 ? (
+                    sortedIncidents.map((incident) => (
+                      <IncidentCard key={incident.id} incident={incident} />
+                    ))
+                  ) : (
+                    <p className="text-center text-white col-span-2">
+                      No incidents to display.
+                    </p>
+                  )}
+                </section>
+
+                {/* New Incident Form */}
+                <section
+                  id="form"
+                  className=" border border-white p-6 rounded-2xl shadow-md mb-50"
+                >
+                  <h2 className="text-2xl font-bold mb-4 text-white">
+                    Report a New Incident
+                  </h2>
+                  <IncidentForm addIncident={addIncident} />
+                </section>
+              </div>
+            </div>
+            <Footer border={true} />
+          </div>
         </div>
-      </div>
-    <Footer border={true} />
-      
-    </div>
-    
-    </div>  
     </>
   );
 }

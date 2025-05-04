@@ -29,27 +29,29 @@ const IncidentCard = ({ incident }: Props) => {
     <div
       className={`bg-white/30 p-4 rounded-xl shadow-sm transition hover:shadow-lg hover:ring-4 ${getSeverityColor(
         incident.severity
-      )}`}
+      )} sm:p-6 md:p-8`}
     >
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xl font-semibold ">{incident.title}</h3>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+        <h3 className="text-lg font-semibold sm:text-xl">{incident.title}</h3>
         <span
-          className={`text-sm font-medium px-3 py-1 rounded-full ${getSeverityColor(
+          className={`text-xs sm:text-sm font-medium px-2 sm:px-3 py-1 rounded-full ${getSeverityColor(
             incident.severity
           )}`}
         >
           {incident.severity}
         </span>
       </div>
-      <p className="text-sm text-gray-800">Reported on: {formattedDate}</p>
+      <p className="text-xs sm:text-sm text-gray-800">Reported on: {formattedDate}</p>
 
       {expanded && (
-        <p className="mt-3 text-white whitespace-pre-line">{incident.description}</p>
+        <p className="mt-3 text-white whitespace-pre-line text-sm sm:text-base">
+          {incident.description}
+        </p>
       )}
 
       <button
         onClick={toggleDescription}
-        className="mt-3 text-blue-500 hover:underline text-sm font-medium"
+        className="mt-3 text-blue-500 hover:underline text-xs sm:text-sm font-medium"
       >
         {expanded ? "Hide Details" : "View Details"}
       </button>
