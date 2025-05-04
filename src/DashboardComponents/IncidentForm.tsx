@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SeverityLevel, mockIncidents } from "../Data/mockIncidents";
+import { toast } from "sonner";
 
 type Props = {
   addIncident: (incident: { title: string; description: string; severity: SeverityLevel }) => void;
@@ -9,8 +10,6 @@ const IncidentForm = ({ addIncident }: Props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [severity, setSeverity] = useState<SeverityLevel>("Low");
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
-  const [popupType, setPopupType] = useState<"error" | "success">("success");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,8 +19,7 @@ const IncidentForm = ({ addIncident }: Props) => {
     if (!description.trim()) missingFields.push("Description");
 
     if (missingFields.length > 0) {
-      setPopupType("error");
-      setPopupMessage(`Please fill: ${missingFields.join(", ")}`);
+      toast.error("All the fields are required")
       return;
     }
 
@@ -37,25 +35,11 @@ const IncidentForm = ({ addIncident }: Props) => {
     mockIncidents.push(newIncident);
 
     addIncident(newIncident);
-    setPopupType("success");
-    setPopupMessage("Incident submitted successfully!");
+    toast.success("Added Successfully");
 
     setTitle("");
     setDescription("");
     setSeverity("Low");
-  };
-
-  useEffect(() => {
-    if (popupMessage) {
-      const timer = setTimeout(() => {
-        setPopupMessage(null);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [popupMessage]);
-
-  const closePopup = () => {
-    setPopupMessage(null);
   };
 
   return (
@@ -107,26 +91,7 @@ const IncidentForm = ({ addIncident }: Props) => {
         </button>
       </form>
 
-      {popupMessage && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-2">
-          <div
-            className={`px-6 py-3 rounded-md shadow-lg text-white text-center text-sm ${
-              popupType === "success" ? "bg-green-500" : "bg-red-500"
-            }`}
-          >
-            {popupMessage}
-            {popupType === "error" && (
-              <button
-                onClick={closePopup}
-                className="ml-4 underline text-xs"
-              >
-                Close
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+      </div>
   );
 };
 
