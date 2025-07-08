@@ -31,13 +31,3 @@
 - **Customizable**: Adapt the dashboard to your organization’s requirements.
 
 ---
-
-## 🔧 Setup `.env` File
-
-```env
-# Example environment variables
-REACT_APP_API_URL=
-REACT_APP_FIREBASE_KEY=
-REACT_APP_AUTH_DOMAIN=
-REACT_APP_PROJECT_ID=
-REACT_APP_STORAGE_BUCKET=
