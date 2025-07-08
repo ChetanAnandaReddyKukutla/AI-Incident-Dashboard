@@ -1,57 +1,43 @@
-<h1 align="center">🛡️ AI Incident Dashboard 🚨</h1> <p align="center"> <img src="/public/screenshot-for-readme.png" alt="Demo App Screenshot" /> </p>
-Highlights
-⚡️ Tech stack: React, TypeScript, Tailwind CSS
-📊 Real-Time Incident Tracking
-🔍 Advanced Filtering & Search
-📝 Easy Incident Reporting
-🎨 Smooth Animations & Modern UI
-🔐 Role-Based Access Control
-🌐 Responsive Design (Mobile & Desktop)
-📈 Analytics & Visualizations
-Features
-Comprehensive Dashboard: View and manage all AI safety incidents in one intuitive interface.
-Powerful Filtering: Quickly filter incidents by type, severity, status, or custom tags.
-Rich Reporting: Effortlessly submit new incidents with detailed forms and attachments.
-User Management: Assign roles and permissions for incident reporters, reviewers, and admins.
-Real-Time Updates: Instant feedback and automatic dashboard refresh for the latest incidents.
-Visual Analytics: Get insights with charts and graphs on incident frequency, resolution times, and more.
-Smooth Animations: Enjoy a delightful, interactive experience powered by Tailwind CSS.
-Customizable: Easily adapt the dashboard for your organization’s needs.
-Setup .env File
-env
+<h1 align="center">🛡️ AI Incident Dashboard 🚨</h1>
+
+<p align="center">
+  <img src="/public/screenshot-for-readme.png" alt="Demo App Screenshot" />
+</p>
+
+---
+
+## ⚡ Highlights
+
+- ⚙️ **Tech Stack**: React, TypeScript, Tailwind CSS
+- 📊 **Real-Time Incident Tracking**
+- 🔍 **Advanced Filtering & Search**
+- 📝 **Easy Incident Reporting**
+- 🎨 **Smooth Animations & Modern UI**
+- 🔐 **Role-Based Access Control**
+- 🌐 **Responsive Design (Mobile & Desktop)**
+- 📈 **Analytics & Visualizations**
+
+---
+
+## 🚀 Features
+
+- **Comprehensive Dashboard**: View and manage all AI safety incidents in one intuitive interface.
+- **Powerful Filtering**: Filter incidents by type, severity, status, or custom tags.
+- **Rich Reporting**: Submit new incidents with detailed forms and attachments.
+- **User Management**: Assign roles and permissions for reporters, reviewers, and admins.
+- **Real-Time Updates**: Get instant feedback and live dashboard refreshes.
+- **Visual Analytics**: Charts and graphs show incident trends, resolution time, and more.
+- **Smooth Animations**: Delightful interactions powered by Tailwind CSS.
+- **Customizable**: Adapt the dashboard to your organization’s requirements.
+
+---
+
+## 🔧 Setup `.env` File
+
+```env
 # Example environment variables
 REACT_APP_API_URL=
 REACT_APP_FIREBASE_KEY=
 REACT_APP_AUTH_DOMAIN=
 REACT_APP_PROJECT_ID=
 REACT_APP_STORAGE_BUCKET=
-Getting Started
-Clone the repository
-Install dependencies
-Shell
-npm install
-Set up your environment variables as shown above
-Run the development server
-Shell
-npm run dev
-Open http://localhost:3000 in your browser
-Deployment
-Deploy instantly to Vercel, Netlify, or your preferred platform:
-
-Shell
-npm run build
-npm start
-Or connect your GitHub repo to Vercel/Netlify for automatic deployments.
-
-Technologies Used
-React: Modern UI library for building interactive dashboards
-TypeScript: Type-safe development for robust code
-Tailwind CSS: Utility-first styling for rapid UI development
-Firebase / REST API: Backend, authentication, and data storage (customizable)
-Chart.js / D3.js: For visual analytics and charts
-Learn More
-React Documentation
-TypeScript Docs
-Tailwind CSS Docs
-Firebase Docs
-Chart.js Docs
